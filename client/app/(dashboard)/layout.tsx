@@ -10,9 +10,9 @@ export default function DashboardLayout({
 
   const isAuth = isAuthenticated();
 
-  if(!isAuth){
-    redirect('/login')
-  }
+  // if(!isAuth){
+  //   redirect('/login')
+  // }
   
   return (
     <div className="flex min-h-screen">

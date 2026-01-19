@@ -1,12 +1,18 @@
-export function isAuthenticated() {
-  if (typeof window === 'undefined') return false;
-  return localStorage.getItem('isAuth') === 'true';
+const TOKEN_KEY = 'token';
+
+export function getToken() {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem(TOKEN_KEY);
 }
 
-export function login() {
-  localStorage.setItem('isAuth', 'true');
+export function isAuthenticated() {
+  return !!getToken();
+}
+
+export function login(token: string) {
+  localStorage.setItem(TOKEN_KEY, token);
 }
 
 export function logout() {
-  localStorage.removeItem('isAuth');
+  localStorage.removeItem(TOKEN_KEY);
 }
