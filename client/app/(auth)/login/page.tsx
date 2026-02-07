@@ -4,11 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/lib/auth";
 import AuthCard from "../AuthCard";
-import { useDarkMode } from "@/hooks/useDarkMode";
 import PageTransition from "@/components/PageTransition";
 
 export default function LoginPage() {
-  const { dark, toggle } = useDarkMode();
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,13 +44,6 @@ export default function LoginPage() {
   return (
     <PageTransition>
       <AuthCard>
-        <button
-          onClick={toggle}
-          className="absolute top-4 right-4 text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
-        >
-          {dark ? "☀️" : "🌙"}
-        </button>
-
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Welcome back 👋</h1>
